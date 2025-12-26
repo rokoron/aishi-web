@@ -3,191 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>生成AIの社内教育・業務活用 | 合同会社Aishi</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>合同会社Aishi | 生成AIで企業の可能性を最大化する</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* デザインベースは維持しつつ、よりクリーンな配色に */
         :root {
             --primary-blue: #003366;
-            --accent-orange: #e67e22;
-            --bg-gray: #f4f7f9;
-            --text-color: #333;
+            --accent-orange: #f39800;
+            --section-gray: #f8f9fa;
+            --text-main: #333;
         }
 
-        body {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-        }
+        body { font-family: 'Noto Sans JP', sans-serif; line-height: 1.8; color: var(--text-main); margin: 0; }
 
-        /* ヒーローエリア */
+        /* ヘッダー：企業ロゴ風 */
+        header { padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
+        .logo { font-weight: bold; font-size: 1.5rem; color: var(--primary-blue); }
+
+        /* メインビジュアル：メッセージ性重視 */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80'); /* 仮の背景画像 */
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
+            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover; padding: 100px 5%; text-align: left;
         }
+        .hero h1 { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; max-width: 600px; }
 
-        .hero-badge {
-            background-color: var(--accent-orange);
-            display: inline-block;
-            padding: 5px 15px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
+        /* ミッションセクション */
+        .mission { padding: 80px 5%; text-align: center; background-color: white; }
+        .mission h2 { color: var(--primary-blue); margin-bottom: 30px; }
+        .mission-text { max-width: 800px; margin: 0 auto; font-size: 1.1rem; }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+        /* ソリューション（旧サービス） */
+        .solutions { padding: 80px 5%; background-color: var(--section-gray); }
+        .section-title { text-align: center; color: var(--primary-blue); margin-bottom: 50px; }
+        .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .solution-card { background: white; padding: 30px; border-radius: 4px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .solution-card h3 { color: var(--primary-blue); border-left: 4px solid var(--accent-orange); padding-left: 15px; }
 
-        /* 悩みセクション */
-        .problems {
-            background-color: var(--primary-blue);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 30px auto 0;
-        }
-
-        .problem-item {
-            text-align: left;
-            border-bottom: 1px dashed rgba(255,255,255,0.3);
-            padding: 10px;
-        }
-
-        /* サービスセクション */
-        .services {
-            padding: 80px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .service-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        /* 講師紹介 */
-        .profile {
-            background-color: var(--bg-gray);
-            padding: 60px 20px;
-        }
-
-        .profile-container {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-right: 30px;
-            background: #ccc;
-        }
+        /* 会社概要 */
+        .company-info { padding: 80px 5%; }
+        table { width: 100%; max-width: 800px; margin: 0 auto; border-collapse: collapse; }
+        th, td { padding: 15px; border-bottom: 1px solid #eee; text-align: left; }
+        th { width: 30%; color: var(--primary-blue); }
 
         /* フッター */
-        footer {
-            background-color: #000;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .btn-contact {
-            background-color: var(--accent-orange);
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 20px;
-        }
+        footer { background: var(--primary-blue); color: white; padding: 50px 5%; text-align: center; }
+        .cta-btn { background: var(--accent-orange); color: white; padding: 15px 40px; text-decoration: none; border-radius: 4px; display: inline-block; margin-top: 20px; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<section class="hero">
-    <div class="hero-badge">生成AIを業務に、"ちゃんと落とし込む"</div>
-    <h1>生成AIの<br>社内教育・業務活用<br>はじめませんか？</h1>
-</section>
+    <header>
+        <div class="logo">合同会社Aishi</div>
+    </header>
 
-<section class="problems">
-    <h2>急速に進歩する生成AI、こんなお悩みありませんか？</h2>
-    <div class="problem-grid">
-        <div class="problem-item">☑ 生成AIが話題だけど、自分の仕事に活かせていない</div>
-        <div class="problem-item">☑ 社員のAIリテラシーに差があり、一部のみが活用している</div>
-        <div class="problem-item">☑ 業務を効率化したいが、AI活用のイメージが持てない</div>
-        <div class="problem-item">☑ 自社ビジネスにAIをどう取り入れるべきか知りたい</div>
-    </div>
-</section>
+    <section class="hero">
+        <h1>生成AIを、<br>企業の「知恵」に変える。</h1>
+        <p>私たちは、最先端のAI技術を単なるツールとしてではなく、組織の文化と業務に深く根付かせるためのパートナーです。</p>
+    </section>
 
-<section class="services">
-    <h2 style="text-align:center;">必要なニーズに合わせた生成AI研修をご提供</h2>
-    <div class="service-grid">
-        <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=80" alt="業務活用支援">
-            <h3>生成AIの業務活用支援</h3>
+    <section class="mission">
+        <h2>私たちのミッション</h2>
+        <div class="mission-text">
+            「AIを使いこなせる人と、そうでない人の格差をなくす」<br>
+            技術の進歩に取り残されることなく、すべての社員がAIを相棒として創造的な仕事に集中できる環境を構築します。
         </div>
-        <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=400&q=80" alt="仕組み理解">
-            <h3>仕組み理解/活用セミナー</h3>
-        </div>
-        <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=400&q=80" alt="開発サポート">
-            <h3>AIプロダクト開発サポート</h3>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section class="profile">
-    <div class="profile-container">
-        <div class="profile-img"></div> <div>
-            <p>講師 / アドバイザー</p>
-            <h2 style="margin:0;">森 宏晃</h2>
-            <p><strong>合同会社Aishi 代表</strong></p>
-            <p>非エンジニアの方でもわかりやすく実務に活かせる講座をUdemy等で提供し、受講者数は45,000名以上。</p>
+    <section class="solutions">
+        <h2 class="section-title">提供ソリューション</h2>
+        <div class="solution-grid">
+            <div class="solution-card">
+                <h3>伴走型AI導入コンサルティング</h3>
+                <p>貴社独自の業務フローを分析し、どこにAIを組み込むべきか、具体的なロードマップを策定します。</p>
+            </div>
+            <div class="solution-card">
+                <h3>組織向けAIリテラシー研修</h3>
+                <p>非エンジニア層を対象とした、現場ですぐに使えるプロンプトエンジニアリングと仕組みの理解を深める講座を提供します。</p>
+            </div>
+            <div class="solution-card">
+                <h3>カスタムAIプロダクト開発支援</h3>
+                <p>汎用的なAIでは解決できない、貴社専用のAIツールやインターフェースの開発をサポートします。</p>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<footer>
-    <p>お問い合わせ：info@ai-shi.com</p>
-    <a href="mailto:info@ai-shi.com" class="btn-contact">メールでお問い合わせ</a>
-    <p style="margin-top:20px; font-size: 0.8rem;">合同会社Aishi 生成AI活用サポート担当<br>東京都渋谷区恵比寿西...</p>
-</footer>
+    <section class="company-info">
+        <h2 class="section-title">会社情報</h2>
+        <table>
+            <tr><th>社名</th><td>合同会社Aishi（Aishi LLC.）</td></tr>
+            <tr><th>代表</th><td>森 宏晃</td></tr>
+            <tr><th>所在地</th><td>東京都渋谷区恵比寿西2丁目8番4号 EX恵比寿西ビル5階</td></tr>
+            <tr><th>事業内容</th><td>生成AI活用コンサルティング、教育研修事業、システム開発支援</td></tr>
+        </table>
+    </section>
+
+    <footer>
+        <h2 style="color: white; margin-bottom: 20px;">Contact</h2>
+        <p>貴社の課題に合わせた最適なAI活用をご提案します</p>
+        
+        <a href="https://docs.google.com/forms/d/16v1TXzc02ZD1HQKSEeEQhYiKAD1uGLiQwUVAS8pmvu8/viewform" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="cta-btn">
+           セミナーのお問い合わせ
+        </a>
+
+        <p style="margin-top: 20px;">info@ai-shi.com</p>
+        <p style="margin-top: 40px; font-size: 0.8rem; color: #ccc;">
+            &copy; 2025 Aishi LLC. All rights reserved.
+        </p>
+    </footer>
 
 </body>
 </html>
